@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:x_challenge/constants/gaps.dart';
 import 'package:x_challenge/constants/sizes.dart';
-import 'package:x_challenge/features/onboarding/interests_screen.dart';
 import 'package:x_challenge/features/onboarding/widgets/interest_button.dart';
 
 class InterestDetail extends StatefulWidget {

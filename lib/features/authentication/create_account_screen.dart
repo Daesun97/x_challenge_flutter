@@ -22,6 +22,7 @@ class _CreateAcoountScreenState extends State<CreateAcoountScreen> {
   final TextEditingController _birthdaycontroller = TextEditingController();
   DateTime initialDate = DateTime.now();
   bool _nameValid = false;
+  String _email = '';
   // final bool _nameValid = false;
 
   void _onSubmitTap() {
@@ -31,8 +32,10 @@ class _CreateAcoountScreenState extends State<CreateAcoountScreen> {
         // print(formData);
       }
     }
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => const ConfirmationScreen()));
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => ConfirmationScreen(
+              userEmail: _email,
+            )));
   }
 
   bool _isEmailValid() {
@@ -73,6 +76,15 @@ class _CreateAcoountScreenState extends State<CreateAcoountScreen> {
   }
 
   Map<String, dynamic> formData = {};
+  @override
+  void initState() {
+    super.initState();
+    _emailcontroller.addListener(() {
+      setState(() {
+        _email = _emailcontroller.text;
+      });
+    });
+  }
 
   @override
   void dispose() {

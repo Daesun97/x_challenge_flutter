@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           ),
           primaryColor: const Color.fromARGB(255, 53, 173, 241),
           scaffoldBackgroundColor: Colors.white),
-      home: const InitialScreen(),
+      home: const CreateAcoountScreen(),
     );
   }
 }

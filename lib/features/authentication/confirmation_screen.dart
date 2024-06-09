@@ -10,8 +10,8 @@ import 'package:x_challenge/features/widget/pincodestate.dart';
 import 'package:x_challenge/features/widget/pintextfield.dart';
 
 class ConfirmationScreen extends StatefulWidget {
-  final Map<String, String>? formData;
-  const ConfirmationScreen({super.key, this.formData});
+  final String userEmail;
+  const ConfirmationScreen({super.key, required this.userEmail});
 
   @override
   State<ConfirmationScreen> createState() => _ConfirmationScreenState();
@@ -48,19 +48,19 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
           size: Sizes.size44,
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: Sizes.size40),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: Sizes.size40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Gaps.v40,
-            Text(
+            const Text(
               '코드를 보내드렸어요!',
               style: TextStyle(
                   fontWeight: FontWeight.bold, fontSize: Sizes.size36),
             ),
             Gaps.v32,
-            Text(
+            const Text(
               '메일을 확인해 보세요',
               style: TextStyle(
                 fontSize: Sizes.size20,
@@ -69,14 +69,13 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
             Gaps.v10,
             Text(
               //Formkey로 정보 받아오는 방식이 잘못댔나? null값이 나온다
-              // "${widget.formData?['email']}",
-              'dbseotjs@naver.com',
-              style: TextStyle(
+              widget.userEmail,
+              style: const TextStyle(
                 fontSize: Sizes.size20,
               ),
             ),
             Gaps.v48,
-            PinCodeFieldWidget(
+            const PinCodeFieldWidget(
               length: 4,
             ),
           ],
